@@ -29,8 +29,8 @@
 docker version 명령으로 Docker 서버와 클라이언트 정보 확인
 
 ### Springboot 설정
-1. 확인을 위한 컨트롤러 설정   
-https://github.com/asdf120/docker/blob/main/src/main/java/com/docker/controller/MainController.java
+1. [확인을 위한 컨트롤러 설정](https://github.com/asdf120/docker/blob/main/src/main/java/com/docker/controller/MainController.java)  
+
 ``` JAVA
 @Controller
 public class MainController {
@@ -42,15 +42,15 @@ public class MainController {
 }
 ```
 
-2. 이미지 생성을 위한 Dockerfile 생성
-프로젝트 root에 Dockerfile 파일 생성
-https://github.com/asdf120/docker/blob/main/Dockerfile
+2. [이미지 생성을 위한 Dockerfile 생성](https://github.com/asdf120/docker/blob/main/Dockerfile)  
+    
 ``` JAVA
 FROM openjdk:8-jdk-alpine 
 ARG JAR_FILE=build/libs/*.jar
 COPY ${JAR_FILE} app.jar
 ENTRYPOINT ["java","-jar","/app.jar"]
-```
+```  
+프로젝트 root에 Dockerfile 파일 생성
 - FROM - 도커 생성시 기반 이미지, 프로젝트의 jdk버전으로 설정  
 - ARG - 빌드시 사용할 환경 변수 선언, Spring jar파일이 생성되는 위치를 변수로 선언  
 - COPY - jar 파일명을 app.jar로 복사  
